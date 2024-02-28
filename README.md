@@ -88,14 +88,17 @@ Compress a bunch of tifs...
   Subset with -te 
     
         gdalwarp -te -7.35 48.48 3.79 59.51 merged_DEM.tif subset_DEM.tif
-        
-    
-  Mosaic with gdal
+
+  Change Resolution w/ -tr (target resolution)
+
+        gdalwarp -tr 100.0 100.0 -r cubic -of GTiff USGS_13_n45w068_20230302_6350.tif ./warped/USGS_13_n45w068_20230302_6350_100x100.tif
+            
+  Mosaic
 
         gdalwarp --config GDAL_CACHEMAX 3000 -wm 3000 *.tif final_mosaic.tif
 
-
   * Note that it is usually a good idea to "optimise" the resulting image with gdal_translate.
+
         
  #### gdalbuildvrt
  
